@@ -14,3 +14,67 @@ a {
 * {
   box-sizing: border-box;
 }
+
+input {
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.header {
+  border-bottom: 1px solid #eee;
+  display: flex;
+}
+
+.logo {
+  width: 420px;
+}
+
+.menu {
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.menu ul li {
+  padding: 30px;
+}
+
+/*===== Content =====*/
+.main {
+  display: flex;
+}
+
+.list {
+  flex-grow: 1;
+  padding: 50px;
+}
+
+.product {
+  width: 545px;
+  border-left: 1px solid #eee;
+}
+
+.search {
+  margin-bottom: 40px;
+}
+
+.input-search {
+  background-color: #f1f1f1;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  border: none;
+  color: tomato;
+  margin-bottom: 40px;
+}
+
+.keyword {
+  font-weight: bold;
+}
