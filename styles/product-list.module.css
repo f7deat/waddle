@@ -1,0 +1,59 @@
+.productList {
+    width: calc(100% - 920px);
+    padding: 50px;
+}
+
+.sort {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btnSort {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.btnSort:hover {
+    background-color: tomato;
+    color: #fff;
+}
+
+.active {
+    background-color: tomato;
+    color: #fff;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 50%;
+    padding: 0.5rem;
+}
+
+.thumbnail img {
+    max-width: 100%;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .productList {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+}

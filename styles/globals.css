@@ -1,9 +1,14 @@
-html,
-body {
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html, body {
   padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0 auto;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: #35393c;
+  line-height: 1.5;
 }
 
 a {
@@ -13,6 +18,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  cursor: pointer;
 }
 
 input {
@@ -29,7 +41,7 @@ input:focus {
 }
 
 .logo {
-  width: 420px;
+  width: 375px;
 }
 
 .menu {
@@ -51,11 +63,6 @@ input:focus {
   display: flex;
 }
 
-.list {
-  flex-grow: 1;
-  padding: 50px;
-}
-
 .product {
   width: 545px;
   border-left: 1px solid #eee;
@@ -66,8 +73,8 @@ input:focus {
 }
 
 .input-search {
-  background-color: #f1f1f1;
-  padding: 1.25rem 2rem;
+  background-color: #fafafa;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   width: 100%;
   border: none;
