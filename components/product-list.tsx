@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Column } from '../enums/column';
 import styles from '../styles/product-list.module.css';
+import { Product } from '../types/product';
 
 interface IProductListProps {
-    products: any;
+    products: Product[];
     product: any;
     setProduct: any;
 }
@@ -12,7 +12,7 @@ export const ProductList = (props: IProductListProps) => {
 
     const [searchTerm, setSearchTerm] = useState('Monstera')
 
-    const currencyFormat = (input: number) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(input);
+    const currencyFormat = (input: string) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(Number(input));
 
     const handleSelectProduct = (product: any) => {
         props.setProduct(product)
@@ -39,12 +39,12 @@ export const ProductList = (props: IProductListProps) => {
             </div>
             <div className={styles.list}>
                 {
-                    props.products?.map((product: any, index: number) => (
+                    props.products?.map((product: Product, index: number) => (
                         <div className={styles.item} key={index}>
                             <div className={styles.card}>
                                 <button className={styles.like}><i className="fas fa-heart"></i></button>
                                 <div className={styles.thumbnail}>
-                                    <img src={product["c"][Column.THUMBNAIL]["v"]} alt={product["c"][1]["v"]} />
+                                    <img src={product.thumbnail} alt={product.name} />
                                 </div>
                                 <div className={styles.cardBody}>
                                     <div className={styles.rate}>
@@ -54,10 +54,10 @@ export const ProductList = (props: IProductListProps) => {
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
                                     </div>
-                                    <div className={styles.name} onClick={() => handleSelectProduct(product)}>{product["c"][1]["v"]}</div>
+                                    <div className={styles.name} onClick={() => handleSelectProduct(product)}>{product.name}</div>
                                 </div>
                                 <div className={styles.action}>
-                                    <div className={styles.price}>{currencyFormat(product["c"][4]["v"])}</div>
+                                    <div className={styles.price}>{currencyFormat(product.regularPrice)}</div>
                                     <button className={styles.addToCart}><i className="fas fa-cart-plus mr-2"></i>Thêm vào giỏ</button>
                                 </div>
                             </div>

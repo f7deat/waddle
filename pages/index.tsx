@@ -7,21 +7,18 @@ import { Filter } from '../components/filter'
 import { ProductDetails } from '../components/product-details'
 import { ProductList } from '../components/product-list'
 import styles from '../styles/home.module.css'
-import { Sheet } from '../types/sheet'
+import { Product } from '../types/product'
 
 const Home: NextPage = () => {
 
-  const [sheet, setSheet] = useState<Sheet>()
-  const [product, setProduct] = useState<any>()
+  const [products, setProducts] = useState<Product[]>([])
+  const [product, setProduct] = useState<Product>()
 
   useEffect(() => {
-    axios.get(`https://docs.google.com/spreadsheets/d/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/gviz/tq?tqx=out:json`).then((response: any) => {
-      let data = JSON.parse(response.data.toString().slice(47, response.data.length - 2));
-      setSheet(data)
-      
+    axios.get(`https://opensheet.vercel.app/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/products`).then((response: any) => {
+      setProducts(response.data)
       // Select first data row
-      setProduct(data.table.rows[0])
-      console.log(data)
+      setProduct(response.data[0])
     })
   }, [])
 
@@ -51,7 +48,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Filter />
-        <ProductList products={sheet?.table.rows} product={product} setProduct={setProduct} />
+        <ProductList products={products} product={product} setProduct={setProduct} />
         <ProductDetails product={product} />
       </main>
 

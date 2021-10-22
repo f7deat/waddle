@@ -1,8 +1,8 @@
-import { Column } from '../enums/column';
 import styles from '../styles/product-details.module.css';
+import { Product } from '../types/product';
 
 interface IProductDetailProps {
-    product: any;
+    product?: Product;
 }
 
 export const ProductDetails = (props: IProductDetailProps) => {
@@ -12,9 +12,9 @@ export const ProductDetails = (props: IProductDetailProps) => {
                 props.product && (
                     <div className={styles.card}>
                         <div className={styles.thumbnail}>
-                            <img src={props.product["c"][Column.THUMBNAIL]["v"]} alt="Thumbnail" />
+                            <img src={props.product.thumbnail} alt={props.product.name} />
                         </div>
-                        <h1 className={styles.name}>{props.product["c"][Column.NAME]["v"]}</h1>
+                        <h1 className={styles.name}>{props.product.name}</h1>
                         <div className={styles.action}>
                             <button className={styles.like}><i className="fas fa-heart"></i></button>
                             <button className={styles.addToCart}><i className="fas fa-cart-plus mr-2"></i>Thêm vào giỏ</button>
