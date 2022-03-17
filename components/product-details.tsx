@@ -2,7 +2,7 @@ import styles from '../styles/product-details.module.css';
 import { Product } from '../types/product';
 
 interface IProductDetailProps {
-    product?: Product;
+    product?: Product | any;
 }
 
 export const ProductDetails = (props: IProductDetailProps) => {

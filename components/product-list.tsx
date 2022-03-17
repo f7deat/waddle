@@ -5,7 +5,6 @@ import { Product } from '../types/product';
 interface IProductListProps {
     products: Product[];
     product: any;
-    setProduct: any;
 }
 
 export const ProductList = (props: IProductListProps) => {
@@ -13,10 +12,6 @@ export const ProductList = (props: IProductListProps) => {
     const [searchTerm, setSearchTerm] = useState('Monstera')
 
     const currencyFormat = (input: string) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(Number(input));
-
-    const handleSelectProduct = (product: any) => {
-        props.setProduct(product)
-    }
 
     return (
         <div className={styles.productList}>
@@ -42,7 +37,7 @@ export const ProductList = (props: IProductListProps) => {
                     props.products?.map((product: Product, index: number) => (
                         <div className={styles.item} key={index}>
                             <div className={styles.card}>
-                                <button className={styles.like}><i className="fas fa-heart"></i></button>
+                                <button className={styles.like} type="button"><i className="fas fa-heart"></i></button>
                                 <div className={styles.thumbnail}>
                                     <img src={product.thumbnail} alt={product.name} />
                                 </div>
@@ -54,7 +49,7 @@ export const ProductList = (props: IProductListProps) => {
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
                                     </div>
-                                    <div className={styles.name} onClick={() => handleSelectProduct(product)}>{product.name}</div>
+                                    <div className={styles.name}>{product.name}</div>
                                 </div>
                                 <div className={styles.action}>
                                     <div className={styles.price}>{currencyFormat(product.regularPrice)}</div>

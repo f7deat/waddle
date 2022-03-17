@@ -25,6 +25,7 @@
 
 .active {
     background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
 }
 
@@ -182,6 +183,6 @@
   }
 
   .card {
-    padding: 40px;
+    padding: 1rem;
   }
 }
