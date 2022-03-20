@@ -1,9 +1,9 @@
 import axios from "axios";
 import type { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Filter } from "../components/filter";
+import Header from "../components/header";
 import { ProductDetails } from "../components/product-details";
 import { ProductList } from "../components/product-list";
 import styles from "../styles/home.module.css";
@@ -37,6 +37,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
         ></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -47,20 +48,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
-        <div className={styles.logo}>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={150} height={33} />
-        </div>
-        <div className={styles.menu}>
-          <ul>
-            <li className={styles.active}>Cửa hàng</li>
-            <li>Liên hệ</li>
-            <li>Workshops</li>
-            <li>Blogs</li>
-          </ul>
-          <div className=""></div>
-        </div>
-      </header>
+      <Header />
 
       <main className={styles.main}>
         <Filter />
