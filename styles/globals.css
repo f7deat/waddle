@@ -9,7 +9,7 @@ html, body {
   margin: 0 auto;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: #35393c;
+  color: #172b4d;
   line-height: 1.5;
 }
 
@@ -18,20 +18,12 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-button {
-  background-color: transparent;
-  cursor: pointer;
+.text-primary {
+  color: var(--primary);
 }
 
 input, button {
-  font-size: 100%;
-  font-family: var(--font-family);
   outline: none;
-  border: none;
 }
 
 .mr-2 {
