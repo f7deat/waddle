@@ -11,7 +11,7 @@ import { Product } from "../types/product";
 
 export const getServerSideProps = async () => {
   const response = await axios.get<Product[]>(
-    `https://opensheet.vercel.app/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/products`
+    `https://opensheet.vercel.app/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/products!A1:J5`
   );
   return {
     props: {
@@ -27,10 +27,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
     <div className="app">
       <Head>
         <title>Cửa hàng - Shop.DefZone.Net</title>
-        <meta
-          name="description"
-          content="Mua sắm các sản phẩm chất lượng cao với DefZone.Net"
-        />
+        <meta name="description" content="Mua sắm các sản phẩm chất lượng cao với DefZone.Net" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -57,11 +54,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://shop.defzone.net"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://shop.defzone.net">
           Powered by Shop.DefZone.Net
         </a>
       </footer>

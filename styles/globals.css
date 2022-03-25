@@ -49,3 +49,7 @@ input, button {
   background-color: var(--primary);
   opacity: 0.75;
 }
+
+.object-fit-cover {
+  object-fit: cover;
+}

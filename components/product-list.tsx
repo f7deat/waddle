@@ -50,7 +50,7 @@ export const ProductList = (props: IProductListProps) => {
           <div className="" key={index}>
             <div className={styles.card}>
               <div className={styles.thumbnail}>
-                <img src={product.thumbnail} alt={product.name} />
+                <img src={product.thumbnail} alt={product.name} className="object-fit-cover" />
               </div>
               <div className="flex justify-between py-2 items-center">
                 <div className={styles.rate}>
@@ -60,7 +60,7 @@ export const ProductList = (props: IProductListProps) => {
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
                 </div>
-                <button className="text-red-500 px-1" type="button">
+                <button className="text-red-500 px-1 hover:text-red-600" type="button">
                   <i className="fas fa-heart"></i>
                 </button>
               </div>
@@ -69,9 +69,9 @@ export const ProductList = (props: IProductListProps) => {
                 <div className="text-red-500 text-sm">
                   {currencyFormat(product.regularPrice)}
                 </div>
-                <button className="px-4 py-1 border rounded-full transition duration-500">
-                  <i className="fas fa-cart-plus mr-2"></i>Thêm vào giỏ
-                </button>
+                <a className="px-4 py-1 border rounded-full transition duration-500" href={product.url}>
+                  <i className="fas fa-cart-plus mr-2"></i>Mua ngay
+                </a>
               </div>
             </div>
           </div>
