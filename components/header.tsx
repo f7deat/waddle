@@ -1,12 +1,11 @@
-import Image from "next/image";
 import styles from "../styles/home.module.css";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between px-2 shadow">
-      <div className="flex gap-2 items-center text-gray-800 px-2">
-        <i className="fas fa-shield-alt text-2xl"></i>
-        <div className="font-bold text-xl">DefZone<span className="text-primary">.Net</span></div>
+    <header className="flex items-center justify-between px-2 border-b">
+      <div className="flex gap-2 items-center px-2">
+        <i className="fas fa-cart-arrow-down text-2xl text-red-500"></i>
+        <div className="font-bold text-3xl">DefZone<span className="text-red-500">.Net</span></div>
       </div>
       <div className={styles.menu}>
         <ul>

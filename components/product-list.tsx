@@ -5,6 +5,7 @@ import { Product } from "../types/product";
 interface IProductListProps {
   products: Product[];
   product: any;
+  setProduct: any;
 }
 
 export const ProductList = (props: IProductListProps) => {
@@ -45,14 +46,14 @@ export const ProductList = (props: IProductListProps) => {
         <button className={styles.btnSort}>Mới nhất</button>
         <button className={styles.btnSort}>Giá</button>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 mb-4 border-b pb-4">
         {props.products?.map((product: Product, index: number) => (
           <div className="" key={index}>
             <div className={styles.card}>
-              <div className={styles.thumbnail}>
-                <img src={product.thumbnail} alt={product.name} className="object-fit-cover" />
+              <div className="cursor-pointer bg-gray-900" onClick={() => props.setProduct(product)}>
+                <img src={product.thumbnail} alt={product.name} className="object-fit-cover transition duration-500 hover:opacity-75" />
               </div>
-              <div className="flex justify-between py-2 items-center">
+              <div className="flex justify-between py-1 items-center">
                 <div className={styles.rate}>
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
@@ -64,18 +65,19 @@ export const ProductList = (props: IProductListProps) => {
                   <i className="fas fa-heart"></i>
                 </button>
               </div>
-              <div className={styles.name}>{product.name}</div>
+              <div className="font-bold hover:text-red-500 flex-1 cursor-pointer" onClick={() => props.setProduct(product)}>{product.name}</div>
               <div className={styles.action}>
                 <div className="text-red-500 text-sm">
                   {currencyFormat(product.regularPrice)}
                 </div>
-                <a className="px-4 py-1 border rounded-full transition duration-500" href={product.url}>
-                  <i className="fas fa-cart-plus mr-2"></i>Mua ngay
-                </a>
               </div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-between">
+        <button className="px-4 py-2 border rounded-full"><i className="fas fa-angle-left mr-1"></i>Trang trước</button>
+        <button className="px-4 py-2 border rounded-full">Trang sau<i className="fas fa-angle-right ml-1"></i></button>
       </div>
     </div>
   );

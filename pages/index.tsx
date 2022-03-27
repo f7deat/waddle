@@ -1,7 +1,7 @@
 import axios from "axios";
-import type { InferGetServerSidePropsType, NextPage } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import { Filter } from "../components/filter";
 import Header from "../components/header";
 import { ProductDetails } from "../components/product-details";
@@ -9,20 +9,25 @@ import { ProductList } from "../components/product-list";
 import styles from "../styles/home.module.css";
 import { Product } from "../types/product";
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const pageIndex = context.query['pageIndex'] || 1;
   const response = await axios.get<Product[]>(
-    `https://opensheet.vercel.app/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/products!A1:J5`
+    `https://opensheet.vercel.app/1f93_oo5mQM8sY1eg-HEz6JI3qzYSH1_y7wGWCN-fsB0/products!A${pageIndex}:J9`
   );
+
   return {
     props: {
       products: response.data,
-    }, // will be passed to the page component as props
+    }
   };
-};
+}
 
 const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
   data
 ) => {
+
+  const [product, setProduct] = useState<Product>()
+
   return (
     <div className="app">
       <Head>
@@ -49,8 +54,8 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 
       <main className={styles.main}>
         <Filter />
-        <ProductList products={data.products} product={data.products[0]} />
-        <ProductDetails product={data.products[0]} />
+        <ProductList products={data.products} product={data.products[0]} setProduct={setProduct} />
+        <ProductDetails product={product} />
       </main>
 
       <footer className={styles.footer}>

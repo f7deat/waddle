@@ -17,7 +17,7 @@ export const ProductDetails = (props: IProductDetailProps) => {
                         <h1 className={styles.name}>{props.product.name}</h1>
                         <div className={styles.action}>
                             <button type='button' className='h-10 w-10 flex items-center justify-center text-red-500 border rounded hover:text-red-500'><i className="fas fa-heart"></i></button>
-                            <button className="bg-blue-500 hover:bg-blue-600 px-4 py-2 text-white rounded"><i className="fas fa-cart-plus mr-2"></i>Đặt mua sản phẩm</button>
+                            <button className="bg-red-500 hover:bg-red-600 px-4 py-2 text-white rounded"><i className="fas fa-cart-plus mr-2"></i>Đặt mua sản phẩm</button>
                         </div>
                     </div>
                 )
